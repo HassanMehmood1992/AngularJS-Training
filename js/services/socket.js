@@ -2,7 +2,8 @@ angular.module('socket', [])
 
 .factory('socket', function () {
 
-    var getreturnedvalue; 
+    var state;
+    //var scope;
     var connection = new WebSocket("ws://az0181d.abbvienet.com"
            + "/WcfWSChatForWeb/WSChatService.svc");
     connection.onopen = function () {
@@ -10,18 +11,26 @@ angular.module('socket', [])
     };
 
 
-    connection.sendMessage = function (methodName, parameterObj, $state) {
+    connection.sendMessage = function (methodName, parameterObj, $state, $scope) {
         if (connection.readyState == WebSocket.OPEN) {
             var payload = new Object();
             payload.methodName = methodName;
             payload.parameterObj = JSON.stringify(parameterObj);
             connection.send(JSON.stringify(payload));
-            getreturnedvalue = $state;
+            state = $state;
+            scope = $scope;
        }
     }
 
     connection.onmessage = function (evt) {
-        getreturnedvalue.go('app.playlists');
+        if (evt.data == "true") {
+            state.go('app.playlists');
+
+           // scope.credentialsMessage = "";
+        }
+        else {
+            alert("Invalid UserName or Password");
+        }
         console.log(evt.data);
        // var chatter = JSON.parse(evt.data);
        // addMessageToList(chatter.nickname, true, chatter.message);
