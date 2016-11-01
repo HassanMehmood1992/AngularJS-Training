@@ -1,6 +1,6 @@
 <ion-side-menus enable-menu-with-back-views="false">
   <ion-side-menu-content>
-    <ion-nav-bar class="bar-stable">
+    <ion-nav-bar class="bar-positive">
       <ion-nav-back-button>
       </ion-nav-back-button>
 
@@ -11,19 +11,21 @@
     </ion-nav-bar>
 
     <!-- TABS -->
-    <ion-tabs>
+    <ion-tabs  class="tabs-positive tabs-icon-top">
 
-      <ion-tab title="Search" icon-off="ion-search" icon-on="ion-search" href="#/app/search">
-        <ion-nav-view name="tab-search"></ion-nav-view>
+        <ion-tab title="My Processes" icon-off="ion-archive" icon-on="ion-archive" href="#/app/processes">
+            <ion-nav-view name="tab-processes"></ion-nav-view>
+        </ion-tab>
+        <ion-tab title="Subscribe" icon-off="ion-social-rss" icon-on="ion-social-rss" href="#/app/subscribe">
+            <ion-nav-view name="tab-subscribe"></ion-nav-view>
+        </ion-tab>
+      <ion-tab title="My Tasks" icon-off="ion-checkmark" icon-on="ion-checkmark" href="#/app/tasks">
+        <ion-nav-view name="tab-tasks"></ion-nav-view>
       </ion-tab>
 
-      <ion-tab title="Browse" icon-off="ion-ios-glasses" icon-on="ion-ios-glasses" href="#/app/browse">
-        <ion-nav-view name="tab-browse"></ion-nav-view>
-      </ion-tab>
+      
 
-      <ion-tab title="Playlist" icon-off="ion-ipod" icon-on="ion-ipod" href="#/app/playlists">
-        <ion-nav-view name="tab-playlists"></ion-nav-view>
-      </ion-tab>
+      
 
     </ion-tabs>
 
@@ -39,13 +41,13 @@
         <!--<ion-item menu-close ng-click="login()">
           Login
         </ion-item>-->
-        <ion-item menu-close href="#/app/search">
-          Search
+        <ion-item menu-close href="#/app/tasks">
+          Tasks
         </ion-item>
-        <ion-item menu-close href="#/app/browse">
-          Browse
+        <ion-item menu-close href="#/app/subscribe">
+          Subscribe
         </ion-item>
-        <ion-item menu-close href="#/app/playlists">
+        <ion-item menu-close href="#/app/processes">
           Processes
         </ion-item>
       </ion-list>

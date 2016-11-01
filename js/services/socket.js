@@ -24,7 +24,7 @@ angular.module('socket', [])
 
     connection.onmessage = function (evt) {
         if (evt.data == "true") {
-            state.go('app.playlists');
+            state.go('app.processes');
 
            // scope.credentialsMessage = "";
         }

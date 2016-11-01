@@ -39,49 +39,51 @@ angular.module('starter', ['ionic', 'starter.controllers', 'socket'])
     controller: 'AppCtrl'
   })
 
-  .state('app.search', {
-    url: "/search",
+  .state('app.tasks', {
+      url: "/tasks",
     views: {
-      'tab-search': {
-        templateUrl: "templates/search.html"
+        'tab-tasks': {
+            templateUrl: "templates/tasks.html",
+            controller: 'TasksCtrl'
       }
     }
   })
 
-  .state('app.browse', {
-    url: "/browse",
+  .state('app.subscribe', {
+      url: "/subscribe",
     views: {
-      'tab-browse': {
-        templateUrl: "templates/browse.html"
+        'tab-subscribe': {
+            templateUrl: "templates/subscribe.html",
+            controller: 'SubscribeCtrl'
       }
     }
   })
 
-  .state('app.playlists', {
-    url: "/playlists",
+  .state('app.processes', {
+    url: "/processes",
     views: {
-      'tab-playlists': {
-        templateUrl: "templates/playlists.html",
-        controller: 'PlaylistsCtrl'
+        'tab-processes': {
+            templateUrl: "templates/processes.html",
+            controller: 'ProcessesCtrl'
       }
     }
   })
 
-    .state('app.single', {
-        url: "/playlists/:playlistId",
+    .state('app.process', {
+        url: "/processes/:processId",
         views: {
-            'tab-playlists': {
-                templateUrl: "templates/playlist.html",
-                controller: 'PlaylistCtrl'
+            'tab-processes': {
+                templateUrl: "templates/process.html",
+                controller: 'ProcessCtrl'
             }
         }
        
     })
-     .state('app.page', {
-         url: "/playlists/:playlistId/:lookupid",
+     .state('app.lookup', {
+         url: "/processes/:processId/:lookupid",
          views: {
-             'tab-playlists': {
-                 templateUrl: "templates/look.html",
+             'tab-processes': {
+                 templateUrl: "templates/lookup.html",
                  controller: 'LookuplistCtrl'
              }
          }

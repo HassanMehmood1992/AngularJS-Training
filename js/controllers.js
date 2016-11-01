@@ -89,18 +89,19 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'LEAVE', id: 1 },
-    { title: 'BTR', id: 2 },
-    { title: 'EPO', id: 3 },
-    { title: 'RPDM', id: 4 },
-    { title: 'SNOW', id: 5 },
-    { title: 'HR', id: 6 }
-  ];
+.controller('ProcessesCtrl', function ($scope,$state) {
+    $scope.ProcessList = [
+       { img: "img/process.png", title: 'LEAVE', description: 'Leave Request' },
+       { img: "img/process.png", title: 'BTR', description: 'Business Travel Request' },
+       { img: "img/process.png", title: 'EPO', description: 'Electronic Purchage Order Request' }
+    ]
+    $scope.goToProcess = function(process)
+    {
+        $state.go('app.process', { processId :process.title})
+    }
 })
 
-.controller('PlaylistCtrl', function ($scope, $stateParams, $ionicPopover,$state) {
+.controller('ProcessCtrl', function ($scope, $stateParams, $ionicPopover, $state) {
     //var template = '<ion-popover-view><ion-header-bar> <h1 class="title">Process lookups</h1> </ion-header-bar> <ion-content> Hello! </ion-content></ion-popover-view>';
 
     //$scope.popover = $ionicPopover.fromTemplate(template, {
@@ -108,7 +109,7 @@ angular.module('starter.controllers', [])
     //});
 
     // .fromTemplateUrl() method
-    $scope.title = $stateParams.playlistId
+    $scope.title = $stateParams.processId
     $ionicPopover.fromTemplateUrl('templates/my-popover.html', {
         scope: $scope
     }).then(function (popover) {
@@ -129,9 +130,9 @@ angular.module('starter.controllers', [])
     };
     $scope.gotolookup = function (lookupid) {
         $scope.popover.hide();
-        $state.go('app.page', { playlistId: $stateParams.playlistId, lookupid: lookupid })
+        $state.go('app.lookup', { processId: $stateParams.processId, lookupid: lookupid })
     };
-    
+   
     //Cleanup the popover when we're done with it!
     $scope.$on('$destroy', function () {
         $scope.popover.remove();
@@ -145,7 +146,26 @@ angular.module('starter.controllers', [])
         // Execute action
     });
 })
-.controller('LookuplistCtrl', function ($scope,$stateParams) {
+.controller('LookuplistCtrl', function ($scope, $stateParams) {
     $scope.lookuptitle = $stateParams.lookupid
+
+})
+.controller('TasksCtrl', function ($scope, $stateParams) {
+    $scope.AllTasks = [
+        { img: "img/process.png", title: 'Make up Leave', description: 'Mehmood, Hassan' },
+        { img: "img/process.png", title: 'Sick Leave', description: 'Zubair, Ismail X' },
+        { img: "img/process.png", title: 'Annual Leave', description: 'Hussain, Majid' },
+        { img: "img/process.png", title: 'BTR', description: 'Travel to Dubai Hussain, Majid' }
+    ]
+    
+})
+.controller('SubscribeCtrl', function ($scope, $stateParams) {
+    //$scope.lookuptitle = $stateParams.lookupid
+    $scope.AllProcesses = [
+        { img: "img/process.png", title: 'LEAVE', description: 'Leave Request' },
+        { img: "img/process.png", title: 'BTR', description: 'Business Travel Request' },
+        { img: "img/process.png", title: 'EPO', description: 'Electronic Purchage Order Request' },
+        { img: "img/process.png", title: 'RPDM', description: 'RapidFlow Service Delivery Management Project' }
+    ]
     
 });
