@@ -255,6 +255,18 @@ angular.module('starter.controllers', [])
                 title = "Approved"
                 msg = 'Task has been approved'
                 break;
+            case "terminated":
+                title = "Terminated"
+                msg = 'Task has been terminated'
+                break;
+            case "restart":
+                title = "Restarted"
+                msg = 'Returned to initiator'
+                break;
+            case "delegate":
+                title = "Delegate"
+                msg = 'Task has been delegated'
+                break;
         }
         
 
