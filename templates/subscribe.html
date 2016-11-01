@@ -1,0 +1,35 @@
+<ion-view view-title="RapidFlowNG Processes">
+  <ion-content>
+      <!--<div class="list" ng-repeat="process in AllProcesses">
+
+          <a class="item item-icon-left" href="#">
+              <i class="icon ion-mic-a"></i>
+              
+              <h2>{{process.title}}</h2>
+              <p>{{process.description}} <span class="item-note pull-right">
+    Grammy
+</span></p>
+              
+          </a>
+
+
+      </div>-->
+      <ion-list >
+          <ion-item ng-repeat="process in AllProcesses"
+                    class="item-thumbnail-left">
+
+              <img ng-src="{{process.img}}">
+              <h2>{{process.title}}</h2>
+              <p>{{process.description}}
+                    <span class="item-note pull-right">
+                        <button class="button button-positive">
+                            <i class="icon icon ion-social-rss"></i>
+                        </button>
+                    </span>
+              </p>
+              
+          </ion-item>
+      </ion-list>
+  </ion-content>
+</ion-view>
+

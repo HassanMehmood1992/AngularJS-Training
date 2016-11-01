@@ -1,0 +1,12 @@
+<ion-view view-title="My Processes">
+    <ion-content>
+        <ion-list>
+            <ion-item ng-repeat="process in ProcessList" class="item-thumbnail-left" ng-click="goToProcess(process)">
+                <img ng-src="{{process.img}}">
+                <h2>{{process.title}}</h2>
+                <p>{{process.description}}</p>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
+
