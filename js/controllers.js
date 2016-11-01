@@ -1,11 +1,19 @@
 angular.module('starter.controllers', [])
 
+.service("freshlypressed",function ($http,$log){
+    this.getblogs = function () {
+
+        $http.get('https://az0181d.abbvienet.com/Abbvie.corp.cop.RapidFlow6.0.WCF/CustomOperations.svc/helloworld', { withCredentials: true, async: false}).success(function (data, GetQuoteAsync) {
+            console.log(GetQuoteAsync), console.log(data);
+        });   
+    };
+})
+
 
 .controller('LoginController', function ($scope, $ionicModal, $timeout, $state, socket) {
    
     // Form data for the login modal
-    $scope.loginData = {};
-
+    $scope.loginData = {};  
     // Create the login modal that we will use later
     $ionicModal.fromTemplateUrl('templates/login.html', {
         scope: $scope
@@ -26,19 +34,48 @@ angular.module('starter.controllers', [])
     // Perform the login action when the user submits the login form
     $scope.doLogin = function () {
 
-        console.log('Doing login', $scope.loginData);
-      //  console.log('Doing login', $scope.loginData.username);
-       // console.log('Doing login', $scope.loginData.password);
 
+//        navigator.globalization.getPreferredLanguage(
+//    function (language) { alert('language: ' + language.value + '\n');  },
+//    function () { alert('Error getting language\n'); }
+//);
+
+//        navigator.globalization.getLocaleName(
+//    function (locale) { alert('locale: ' + locale.value + '\n'); },
+//    function () { alert('Error getting locale\n'); }
+//);
+
+//        navigator.globalization.dateToString(
+//    new Date(),
+//    function (date) { alert('date: ' + date.value + '\n'); },
+//    function () { alert('Error getting dateString\n'); },
+//    { formatLength: 'short', selector: 'date and time' }
+//);
+
+//       // function checkDatePattern() {
+//            navigator.globalization.getDatePattern(
+//                function (date)
+//                {
+//                    alert('pattern: ' + date.timezone + '\n');
+//                },
+//                function ()
+//                {
+//                    alert('Error getting pattern\n');
+//                },
+
+//                {
+//                    formatLength: 'full', selector: 'date and time'
+//                }
+//            );
+   
+        console.log('Doing login', $scope.loginData);
+      
         var credentials = new Object();
         credentials.userName = $scope.loginData.username;
         credentials.password = $scope.loginData.password;
        
-        socket.sendMessage("AuthenticateUser", credentials, $state);
-
       
-       // $state.go('app.playlists');
-
+        socket.sendMessage("AuthenticateUser", credentials, $state);        
         // Simulate a login delay. Remove this and replace with your login
         // code if using a login system
         $timeout(function () {
