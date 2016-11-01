@@ -17,41 +17,33 @@
     }
 </style>-->
 
-<ion-popover-view class="fit" ng-controller="TaskPopoverCtrl">
+<ion-popover-view ng-controller="TaskPopoverCtrl">
    
         <ion-content scroll="false">
             <div class="list">
-                <a class="item" href="http://learn.ionicframework.com/" target="_blank">
-                    Learn Ionic
-                </a>
-                <a class="item" href="http://ionicframework.com/docs/" target="_blank">
-                    Documentation
-                </a>
-                <a class="item" href="http://showcase.ionicframework.com/" target="_blank">
-                    Showcase
-                </a>
+               <label class="item item-input">
+                    <textarea placeholder="Comments" rows="7"></textarea>
+                </label>                
+            </div>
+            <div class="buttons">
+                <button class="button button-balanced" ng-click="showalert('approved')">
+                    <i class="icon icon ion-checkmark"></i>
+                </button>
+                <button class="button button-assertive" ng-click="showalert('terminated')">
+                    <i class="icon icon ion-close"></i>
+                </button>
+                <button class="button button-positive" ng-click="showalert('restart')">
+                    <i class="icon icon ion-arrow-return-left"></i>
+                </button>
+                <button class="button button-energized" ng-click="showalert('delegate')">
+                    <i class="icon icon ion-arrow-swap"></i>
+                </button>
             </div>
         </ion-content>
-    <ion-header-bar title="Action">
-        
+    <ion-header-bar>
+        <h1 class="title">Action</h1>
     </ion-header-bar>
     
-    <ion-footer-bar align-title="left">
-        <div class="buttons">
-            <button class="button button-balanced">
-                <i class="icon icon ion-checkmark"></i>
-            </button>
-            <button class="button button-assertive">
-                <i class="icon icon ion-close"></i>
-            </button>
-            <button class="button button-positive">
-                <i class="icon icon ion-arrow-return-left"></i>
-            </button>
-            <button class="button button-energized">
-                <i class="icon icon ion-arrow-swap"></i>
-            </button>
-        </div>
-    </ion-footer-bar>
 </ion-popover-view>
 
 <!--<ion-popover-view>

@@ -243,8 +243,29 @@ angular.module('starter.controllers', [])
 
 
 })
-.controller('TaskPopoverCtrl', function ($scope, $stateParams) {
-    $scope.Comments = "hassan"
-  
+.controller('TaskPopoverCtrl', function ($scope, $stateParams, $ionicPopup) {
+    
+    $scope.showalert = function(value)
+    {
+        var title = ""
+        var msg = ""
+        switch (value)
+        {
+            case "approved":
+                title = "Approved"
+                msg = 'Task has been approved'
+                break;
+        }
+        
+
+        var alertPopup = $ionicPopup.alert({
+            title: title,
+            template: msg
+        });
+
+        alertPopup.then(function (res) {
+            console.log('Thank you for not eating my delicious ice cream cone');
+        });
+    }
     
 });
