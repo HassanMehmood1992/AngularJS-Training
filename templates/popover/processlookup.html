@@ -1,4 +1,23 @@
-﻿<ion-popover-view>
+﻿<style>
+    ion-popover-view.fit {
+  height: auto;
+}
+
+ion-popover-view.fit ion-content {
+  position: relative;
+}
+
+.platform-android ion-popover-view.fit {
+  margin-top: 10px;
+}
+
+.platform-ios ion-popover-view.fit {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+</style>
+
+<ion-popover-view class="fit">
     <ion-header-bar> 
     <h1 class="title">Process lookups</h1> 
     </ion-header-bar> 

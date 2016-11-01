@@ -1,13 +1,13 @@
 <ion-view view-title="My Tasks">
     <ion-content>
         <ion-list>
-            <ion-item ng-repeat="Task in AllTasks"
+            <ion-item ng-repeat="Task in AllTasks" on-hold="openPopover($event)"
                       class="item-thumbnail-left">
 
                 <img ng-src="{{Task.img}}">
                 <h2>{{Task.title}}</h2>
                 <p>{{Task.description}}</p>
-                <div class="buttons">
+                <!--<div class="buttons">
                     <button class="button button-balanced">
                         <i class="icon icon ion-checkmark"></i>
                     </button>
@@ -20,7 +20,7 @@
                     <button class="button button-energized">
                         <i class="icon icon ion-arrow-swap"></i>
                     </button>
-                </div>
+                </div>-->
 
             </ion-item>
         </ion-list>

@@ -88,6 +88,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'socket'])
              }
          }
      })
+    .state('app.processSettings', {
+        url: "/processes/:processId",
+        views: {
+            'tab-processes': {
+                templateUrl: "templates/processSettings.html",
+                controller: 'ProcessSettingsCtrl'
+            }
+        }
+    })
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/login');
 });
