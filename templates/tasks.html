@@ -1,7 +1,7 @@
 <ion-view view-title="My Tasks">
     <ion-content>
         <ion-list>
-            <ion-item ng-repeat="Task in AllTasks" on-hold="openPopover($event)"
+            <ion-item ng-repeat="Task in AllTasks" on-hold="openPopover($event, Task)"
                       class="item-thumbnail-left">
 
                 <img ng-src="{{Task.img}}">

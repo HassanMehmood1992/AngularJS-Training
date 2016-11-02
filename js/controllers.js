@@ -203,7 +203,8 @@ angular.module('starter.controllers', [])
     }).then(function (popover) {
         $scope.popover = popover;
     });
-    $scope.openPopover = function ($event) {
+    $scope.openPopover = function ($event,Task) {
+        $scope.task = Task;
         $scope.popover.show($event);
     };
     $scope.closePopover = function () {
@@ -245,8 +246,10 @@ angular.module('starter.controllers', [])
 })
 .controller('TaskPopoverCtrl', function ($scope, $stateParams, $ionicPopup) {
     
+
     $scope.showalert = function(value)
     {
+        console.log($scope.task)
         var title = ""
         var msg = ""
         switch (value)
