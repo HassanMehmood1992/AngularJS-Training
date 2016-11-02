@@ -20,7 +20,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'socket'])
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+    $ionicConfigProvider.backButton.previousTitleText(false).text('');
     $stateProvider
 
 
